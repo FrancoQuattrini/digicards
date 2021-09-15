@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="styles.css" />
+      <title>DIGIMON</title>
+   </head>
+
+   <body>
+      <div class="wrapper d-flex flex-column">
+         <header>
+            <nav
+               class="navbar navbar-expand-lg navbar-dark bg-dark"
+               aria-label="Eighth navbar example"
+            >
+               <div class="container">
+                  <a class="navbar-brand" href="/">
+                     <img
+                        src="../assets/digimon.png"
+                        alt=""
+                        height="70"
+                        class="d-inline-block align-text-top"
+                     />
+                  </a>
+
+                  <div class="nav justify-content-end" id="navbarsExample07">
+                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                           <a
+                              class="nav-link active"
+                              aria-current="page"
+                              href="/"
+                              >Inicio</a
+                           >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                               class="nav-link"
+                               aria-current="page"
+                               href="/digimons"
+                               >Digimons</a
+                            >
+                         </li>
+                        <li class="nav-item dropdown">
+                           <a
+                              class="nav-link dropdown-toggle"
+                              href="/"
+                              id="dropdown07"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                              >Menú</a
+                           >
+                           <ul
+                              class="dropdown-menu"
+                              aria-labelledby="dropdown07"
+                           >
+                              <li>
+                                 <a class="dropdown-item" href="/perfil"
+                                    >Perfil</a
+                                 >
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="/signup"
+                                   >Crear cuenta</a
+                                >
+                             </li>
+                             <li>
+                                <a class="dropdown-item" href="/login"
+                                   >Ingresar</a
+                                >
+                             </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </header>
+         <main
+            class="
+               container
+               bg-dark
+               d-flex
+               flex-column
+               justify-content-center
+               align-items-center
+               p-5
+            "
+         >
+            <h2 class="text-white pb-5">INGRESAR</h2>
+            <form class="col-6 d-flex flex-column">
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label text-white"
+                       >Email</label
+                    >
+                    <input
+                       type="email"
+                       class="form-control"
+                       id="inputEmail"
+                       aria-describedby="emailHelp"
+                    />
+                 </div>
+                 <div class="mb-3">
+                    <label for="inputPassword" class="form-label text-white"
+                       >Contraseña</label
+                    >
+                    <input
+                       type="password"
+                       class="form-control"
+                       id="inputPassword"
+                    />
+                    <div id="emailHelp" class="form-text text-white">
+                       Fijate y ponela bien father.
+                    </div>
+                 </div>
+               <button type="submit" class="btn btn-success text-center mt-3">
+                ENVIAR
+             </button>
+            </div>
+         </main>
+         <footer class="text-center footer-style p-3 bg-dark text-white">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-4">
+                     <p>Copyrighteadix</p>
+                  </div>
+                  <div class="col-md-4">
+                     <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                     >
+                        NO APRETAR
+                     </button>
+                     <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                     >
+                        <div class="modal-dialog">
+                           <div class="modal-content">
+                              <div class="modal-body">
+                                 <img
+                                    src="./assets/uy.jpg"
+                                    class="rounded mx-auto d-block"
+                                    alt=""
+                                 />
+                              </div>
+                              <div class="modal-footer">
+                                 <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                 >
+                                    ZIIII
+                                 </button>
+                                 <button type="button" class="btn btn-primary">
+                                    ZIIII en azul
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <p>Franco Quattrini</p>
+                  </div>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <script src="./script/"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+         crossorigin="anonymous"
+      ></script>
+   </body>
+</html>

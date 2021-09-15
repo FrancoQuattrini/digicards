@@ -1,0 +1,29 @@
+html * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+main {
+   min-height: 85vh;
+}
+
+.carousel-item img {
+   height: 85vh;
+   object-fit: cover;
+   object-position: bottom;
+}
+
+.carousel-item img.backcenter {
+   object-position: center;
+}
+
+.carousel-item img.backtop {
+   object-position: top;
+}
+
+#botHome {
+   position: absolute;
+   top: 45%;
+   left: 25%;
+}
