@@ -1,0 +1,44 @@
+<header>
+   <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark"
+      aria-label="Eighth navbar example"
+   >
+      <div class="container">
+         <a class="navbar-brand" href="#">
+            <img
+               src="./assets/digimon.png"
+               alt=""
+               height="70"
+               class="d-inline-block align-text-top"
+            />
+         </a>
+
+         <div class="nav justify-content-end" id="navbarsExample07">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("Home") ? "active" : null %>" aria-current="page" href="/">Inicio</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("MyCards") ? "active" : null %>" aria-current="page" href="/mycards">Mis Cards</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("Card") ? "active" : null %>" aria-current="page" href="/card">Crear cards</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("Digimons") ? "active" : null %>" aria-current="page" href="/digimons">Digimons</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("Perfil") ? "active" : null %>" aria-current="page" href="/perfil">Perfil</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("Crear cuenta") ? "active" : null %>" aria-current="page" href="/signup">Crear cuenta</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link <%= title.includes("Ingresar") ? "active" : null %>" aria-current="page" href="/login">Ingresar</a>
+               </li>
+
+            </ul>
+         </div>
+      </div>
+   </nav>
+</header>

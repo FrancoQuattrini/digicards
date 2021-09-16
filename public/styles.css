@@ -27,3 +27,30 @@ main {
    top: 45%;
    left: 25%;
 }
+
+.perfil {
+   width: 50%;
+}
+.fotoPerfil {
+   width: 150px;
+}
+
+.myCard {
+   box-shadow: rgba(255, 255, 255, 0.651) 0px 2px 5px 0px;
+   width: 60%;
+   background: rgb(8, 5, 0);
+   background: linear-gradient(
+      166deg,
+      rgba(8, 5, 0, 1) 0%,
+      rgba(221, 162, 13, 1) 50%,
+      rgba(0, 0, 0, 1) 100%
+   );
+}
+
+.imgTarjeta {
+   width: 100px;
+}
+
+.imgPersonaje {
+   height: 250px;
+}

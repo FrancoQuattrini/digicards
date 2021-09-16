@@ -1,0 +1,89 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+<main
+            class="
+               container
+               bg-dark
+               d-flex
+               flex-column
+               justify-content-center
+               align-items-center
+               p-5
+            "
+         >
+<h2 class="text-white pb-4">CREAR CARD</h2>
+            <form class="col-6 d-flex flex-column" method="POST" action="/card">
+               <div class="mb-3">
+                  <div class="mb-3">
+                     <label for="nickname" class="form-label text-white"
+                        >Nickname</label
+                     >
+                     <input type="text" name="nickname" class="form-control" id="nickname"  required value="<%= edit ? edit.nickname : "" %>" />
+                  </div>
+                  <div class="mb-3">
+                     <label for="digivice" class="form-label text-white"
+                        >Digivice</label
+                     >
+                     <input type="text" name="digivice" class="form-control" id="digivice" required value="<%= edit ? edit.digivice : "" %>"/>
+                  </div>
+                  <div class="mb-3">
+                     <label for="emblema" class="form-label text-white"
+                        >Emblema</label
+                     >
+                     <input type="text" name="emblema" class="form-control" id="emblema" required value="<%= edit ? edit.emblema : "" %>"/>
+                  </div>
+                  <div class="mb-3">
+                     <label for="personaje" class="form-label text-white"
+                        >Personaje</label
+                     >
+                     <input type="text" name="personaje" class="form-control" id="personaje" required value="<%= edit ? edit.personaje : "" %>"/>
+                  </div>
+                  <div class="mb-3">
+                     <label for="digimon1" class="form-label text-white"
+                        >Digimon 1</label
+                     >
+                     <input type="text" name="digimon1" class="form-control" id="digimon1" required value="<%= edit ? edit.digimon1 : "" %>"/>
+                  </div>
+                  <div class="mb-3">
+                     <label for="digimon2" class="form-label text-white"
+                        >Digimon 2</label
+                     >
+                     <input type="text" name="digimon2" class="form-control" id="digimon2" required value="<%= edit ? edit.digimon2 : "" %>"/>
+                  </div>
+                  <div class="mb-3">
+                     <label for="digimon3" class="form-label text-white"
+                        >Digimon 3</label
+                     >
+                     <input type="text" name="digimon3" class="form-control" id="digimon3" required value="<%= edit ? edit.digimon3 : "" %>"/>
+                  </div>
+                  <div class="mb-3">
+                     <label for="digimon4" class="form-label text-white"
+                        >Digimon 4</label
+                     >
+                     <input type="text" name="digimon4" class="form-control" id="digimon4" required value="<%= edit ? edit.digimon4 : "" %>"/>
+                  </div>
+                  <input type="hidden" name="_id" value="<%= edit ? edit._id : null %>"/>
+                  
+                  
+                  <!-- <select id= selectStates class="form-select bg-success text-white mb-3" aria-label="Default select example">
+                     <option value = "allStates" selected>Digivice</option>
+                     <option value = "allStates" selected>Digivice</option>
+                     <option value = "allStates" selected>Digivice</option>
+                   </select>
+                   <select id= selectStates class="form-select bg-warning text-white mb-3" aria-label="Default select example">
+                     <option value = "allStates" selected>Emblema</option>
+                   </select>
+                   <select id= selectStates class="form-select bg-danger text-white mb-3" aria-label="Default select example">
+                     <option value = "allStates" selected>Personaje</option>
+                   </select>
+                   <select id= selectStates class="form-select bg-info text-white mb-3" aria-label="Default select example">
+                     <option value = "allStates" selected>Digimon</option>
+                   </select> -->
+               <button type="submit" class="btn btn-success text-center mt-3">
+                  ENVIAR
+               </button>
+            </form>
+</main>
+<%- include("partials/footer.ejs") %>
+</body>
+</html>
