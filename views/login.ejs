@@ -12,27 +12,31 @@
             "
          >
             <h2 class="text-white pb-5">INGRESAR</h2>
-            <form class="col-6 d-flex flex-column">
+            <form class="col-6 d-flex flex-column" method="POST" action="/login">
                 <div class="mb-3">
-                    <label for="inputEmail" class="form-label text-white"
-                       >Email</label
-                    >
-                    <input
-                       type="email"
-                       class="form-control"
-                       id="inputEmail"
-                       aria-describedby="emailHelp"
-                    />
+                  <label for="email" class="form-label text-white"
+                     >Email</label
+                  >
+                  <input
+                     type="email"
+                     class="form-control"
+                     name="email"
+                     id="email"
+                     aria-describedby="emailHelp"
+                     required
+                  />
                  </div>
                  <div class="mb-3">
-                    <label for="inputPassword" class="form-label text-white"
-                       >Contraseña</label
-                    >
-                    <input
-                       type="password"
-                       class="form-control"
-                       id="inputPassword"
-                    />
+                  <label for="password" class="form-label text-white"
+                     >Contraseña</label
+                  >
+                  <input
+                     type="password"
+                     name="password"
+                     class="form-control"
+                     id="password"
+                     required
+                  />
                     <div id="emailHelp" class="form-text text-white">
                        Fijate y ponela bien father.
                     </div>
@@ -40,6 +44,9 @@
                <button type="submit" class="btn btn-success text-center mt-3">
                 ENVIAR
              </button>
+             <% if (error) { %>
+               <h2 class="text-white"><%= error %> </h2>
+            <% } %>  
             </div>
          </main>
          <%- include("partials/footer.ejs") %>

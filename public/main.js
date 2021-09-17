@@ -1,6 +1,8 @@
-const poder = Math.floor(Math.random() * (10000 + 1))
-console.log(poder)
-
+const digimons = []
 fetch("https://digimon-api.vercel.app/api/digimon")
-   .then((response) => response.json())
-   .then((data) => console.log(data))
+   .then((res) => res.json())
+   .then((json) => {
+      const digimons = [...json]
+      console.log(digimons)
+   })
+   .catch((err) => console.error(err.message))

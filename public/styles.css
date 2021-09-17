@@ -54,3 +54,12 @@ main {
 .imgPersonaje {
    height: 250px;
 }
+
+.imgPerfil {
+   width: 60px;
+   height: 60px;
+   border-radius: 50px;
+   margin: 0px 10px;
+   background-position: center;
+   background-size: cover;
+}
