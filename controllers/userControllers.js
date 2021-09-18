@@ -8,6 +8,7 @@ const userControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
+         userId: req.session.userId,
          error: null,
       })
    },
@@ -18,6 +19,7 @@ const userControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
+         userId: req.session.userId,
          error: null,
       })
    },
@@ -40,13 +42,18 @@ const userControllers = {
       })
       try {
          await nuevoUsuario.save()
-         res.redirect("/login")
+         req.session.logueado = true
+         req.session.nombre = nuevoUsuario.nombre
+         req.session.picture = nuevoUsuario.picture
+         req.session.userId = nuevoUsuario._id
+         res.redirect("/")
       } catch (error) {
          res.render("signup", {
             title: "Crear cuenta",
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
+            userId: req.session.userId,
             error: error,
          })
       }
@@ -60,6 +67,7 @@ const userControllers = {
          req.session.logueado = true
          req.session.nombre = usuario.nombre
          req.session.picture = usuario.picture
+         req.session.userId = usuario._id
          return res.redirect("/")
       }
       res.render("login", {
@@ -67,6 +75,7 @@ const userControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
+         userId: req.session.userId,
          error: "Usuario y/o contraseña incorrecto/a",
       })
    },

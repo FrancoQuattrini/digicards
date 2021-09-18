@@ -1,0 +1,26 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+<main
+            class="
+               container
+               bg-dark
+               d-flex
+               flex-column
+               justify-content-center
+               align-items-center
+               p-5
+            "
+         >
+         <div class="col-6 d-flex flex-column align-items-center">
+                <h2 class="text-white text-center pb-5">NECESITAS ESTAR LOGUEADO PARA VER Y CREAR TUS CARTAS</h2>
+                <div class="col-12 text-center">
+                    <h2 class="text-white pt-4">PUEDES CREARTE UNA CUENTA AQUI ABAJO</h2>
+                    <a aria-current="page" href="/signup"><button class="btn btn-primary col-12 text-center mt-3 py-2 px-5">CREAR USUARIO</button></a>
+                    <h2 class="text-white mt-4 pt-4">O INGRESAR SI YA TIENES UNA</h2>
+                    <a aria-current="page" href="/login"><button class="btn btn-success col-12 text-center mt-3 py-2 px-5">INGRESAR</button></a>
+                </div>
+        </div>
+</main>
+<%- include("partials/footer.ejs") %>
+</body>
+</html>

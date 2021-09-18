@@ -7,6 +7,17 @@ const digiControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
+         userId: req.session.userId,
+      })
+   },
+
+   unauthorized: (req, res) => {
+      res.render("unauthorized", {
+         title: "Unauthorized",
+         logueado: req.session.logueado,
+         nombre: req.session.nombre || "",
+         picture: req.session.picture || "",
+         userId: req.session.userId,
       })
    },
 
@@ -16,32 +27,38 @@ const digiControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
+         userId: req.session.userId,
       })
    },
 
    card: (req, res) => {
-      res.render("card", {
-         title: "Card",
-         logueado: req.session.logueado,
-         nombre: req.session.nombre || "",
-         picture: req.session.picture || "",
-         error: null,
-         edit: false,
-      })
+      if (req.session.logueado) {
+         res.render("card", {
+            title: "Card",
+            logueado: req.session.logueado,
+            nombre: req.session.nombre || "",
+            picture: req.session.picture || "",
+            userId: req.session.userId,
+            error: null,
+            edit: false,
+         })
+      }
+      res.redirect("/unauthorized")
    },
 
    mycards: async (req, res) => {
       if (req.session.logueado) {
-         const cards = await Card.find()
+         const cards = await Card.find({ userId: req.session.userId })
          return res.render("mycards", {
-            title: "My",
+            title: "MC",
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
+            userId: req.session.userId,
             cards,
          })
       }
-      res.redirect("/signup")
+      res.redirect("/unauthorized")
    },
 
    crearCard: async (req, res) => {
@@ -72,6 +89,7 @@ const digiControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
+            userId: req.params._id,
          })
       } else {
          nuevaCard = await Card.findOne({ _id })
@@ -83,6 +101,7 @@ const digiControllers = {
          nuevaCard.digimon2 = digimon2
          nuevaCard.digimon3 = digimon3
          nuevaCard.digimon4 = digimon4
+         nuevaCard.userId = req.params._id
       }
 
       try {
@@ -94,6 +113,7 @@ const digiControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
+            userId: req.session.userId,
             error,
          })
       }
@@ -101,11 +121,13 @@ const digiControllers = {
 
    editarCard: async (req, res) => {
       let editedCard = await Card.findOne({ _id: req.params._id })
+      console.log(editedCard)
       res.render("card", {
          title: "Editar Card",
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
+         userId: req.session.userId,
          error: null,
          edit: editedCard,
       })

@@ -35,36 +35,28 @@
               </div>
               <div class="card-body d-flex justify-content-around">
                   <div>
-                      <h5 class="card-title text-center">Biyomon</h5>
-                      <img class="imgTarjeta" src=<%= card.digimon1 %> alt="">
-                      <p class="card-text">LEVEL : Rookie</p>
+                      <img class="imgTarjetaDigimon" src=<%= card.digimon1 %> alt="">
                   </div>
                   <div>
-                      <h5 class="card-title text-center">Biyomon</h5>
-                      <img class="imgTarjeta" src=<%= card.digimon2 %>  alt="">
-                      <p class="card-text">LEVEL : Rookie</p>
-                  </div>          <div>
-                      <h5 class="card-title text-center">Biyomon</h5>
-                      <img class="imgTarjeta" src=<%= card.digimon3 %>  alt="">
-                      <p class="card-text">LEVEL : Rookie</p>
+                      <img class="imgTarjetaDigimon" src=<%= card.digimon2 %>  alt="">
                   </div>          
                   <div>
-                      <h5 class="card-title text-center">Biyomon</h5>
-                      <img class="imgTarjeta" src=<%= card.digimon4 %>  alt="">
-                      <p class="card-text">LEVEL : Rookie</p>
+                      <img class="imgTarjetaDigimon" src=<%= card.digimon3 %>  alt="">
+                  </div>          
+                  <div>
+                      <img class="imgTarjetaDigimon" src=<%= card.digimon4 %>  alt="">
                   </div>
                 </div>
-                <div class="d-flex justify-content-around bg-dark p-1">
-                    <h4><span class="text-danger fw-bold">Poder: </span>25.144px</h4>
-                    <h4><span class="text-info fw-bold">HP: </span>37.125px</h4>
-                    <h4><span class="text-success fw-bold">Agilidad: </span>17.289px</h4>
+                <div class="d-flex justify-content-around bg-dark p-1 my-3">
+                    <h4><span class="text-danger fw-bold">Poder: </span><%= (Math.random() * 50000).toFixed(0) %> PX</h4>
+                    <h4><span class="text-info fw-bold">HP: </span><%= (Math.random() * 50000).toFixed(0) %> PX</h4>
+                    <h4><span class="text-success fw-bold">Agilidad: </span><%= (Math.random() * 50000).toFixed(0) %> PX</h4>
                 </div>
-                
                 <div class="text-center">
-                  <a href="/editar-card/<%= card._id %> "><button type="submit" class="btn btn-warning text-center m-2">
+                  <a href="/editar-card/<%= card._id %> "><button type="submit" class="btn btn-warning text-white m-2 mb-4 col-3">
                       EDITAR
                     </button></a>
-                    <a href="/borrar-card/<%= card._id %> "><button type="submit" class="btn btn-danger text-center m-2">
+                    <a href="/borrar-card/<%= card._id %> "><button type="submit" class="btn btn-danger text-white m-2 mb-4 col-3">
                     BORRAR
                     </button></a>
                 </div>
@@ -74,5 +66,6 @@
 
 </main>
 <%- include("partials/footer.ejs") %>
+<script src="/main.js"></script>
 </body>
 </html>

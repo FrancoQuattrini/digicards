@@ -6,7 +6,7 @@
       <div class="container">
          <a class="navbar-brand" href="#">
             <img
-               src="./assets/digimon.png"
+               src="/assets/digimon.png"
                alt=""
                height="70"
                class="d-inline-block align-text-top"
@@ -22,11 +22,13 @@
                   <a class="nav-link <%= title.includes("Home") ? "active" : null %>" aria-current="page" href="/">Inicio</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link <%= title.includes("My") ? "active" : null %>" aria-current="page" href="/mycards">Mis Cards</a>
+                  <a class="nav-link <%= title.includes("MC") ? "active" : null %>" aria-current="page" href="/mycards">Mis Cards</a>
                </li>
+               <% if (userId) { %>  
                <li class="nav-item">
-                  <a class="nav-link <%= title.includes("Card") ? "active" : null %>" aria-current="page" href="/card">Crear cards</a>
+                  <a class="nav-link <%= title.includes("Card") ? "active" : null %>" aria-current="page" href="/card/<%= userId %>">Crear cards</a>
                </li>
+               <% } %> 
                <li class="nav-item">
                   <a class="nav-link <%= title.includes("Digimons") ? "active" : null %>" aria-current="page" href="/digimons">Digimons</a>
                </li>

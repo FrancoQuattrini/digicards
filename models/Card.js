@@ -9,6 +9,7 @@ const cardSchema = new mongoose.Schema({
    digimon2: String,
    digimon3: String,
    digimon4: String,
+   userId: { type: mongoose.Types.ObjectId, ref: "user" },
 })
 
 const Card = mongoose.model("card", cardSchema)

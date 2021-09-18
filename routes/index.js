@@ -14,9 +14,13 @@ router
    .get(userControllers.logIn)
    .post(userControllers.ingresarCuenta)
 router.route("/logout").get(userControllers.logOut)
-router.route("/card").get(digiControllers.card).post(digiControllers.crearCard)
+router
+   .route("/card/:_id")
+   .get(digiControllers.card)
+   .post(digiControllers.crearCard)
 router.route("/mycards").get(digiControllers.mycards)
 router.route("/borrar-card/:_id").get(digiControllers.borrarCard)
 router.route("/editar-card/:_id").get(digiControllers.editarCard)
+router.route("/unauthorized").get(digiControllers.unauthorized)
 
 module.exports = router

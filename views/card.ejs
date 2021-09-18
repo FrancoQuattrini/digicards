@@ -12,7 +12,7 @@
             "
          >
 <h2 class="text-white pb-4">CREAR CARD</h2>
-            <form class="col-6 d-flex flex-column" method="POST" action="/card">
+            <form class="col-6 d-flex flex-column" method="POST" action="/card/<%= userId %> ">
                <div class="mb-3">
                   <div class="mb-3">
                      <label for="nickname" class="form-label text-white"
@@ -24,66 +24,67 @@
                      <label for="digivice" class="form-label text-white"
                         >Digivice</label
                      >
-                     <input type="text" name="digivice" class="form-control" id="digivice" required value="<%= edit ? edit.digivice : "" %>"/>
+                     <select name="digivice" id="digivice" class="form-select bg-primary text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.digivice : "" %>" selected><%= edit ? edit.digivice : "Elige tu digivice" %></option>
+                      </select>
                   </div>
+
+
                   <div class="mb-3">
                      <label for="emblema" class="form-label text-white"
                         >Emblema</label
                      >
-                     <input type="text" name="emblema" class="form-control" id="emblema" required value="<%= edit ? edit.emblema : "" %>"/>
+                     <select name="emblema" id="emblema" class="form-select bg-warning text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.emblema : "" %>" selected><%= edit ? edit.emblema : "Elige tu emblema" %></option>
+                      </select>
                   </div>
                   <div class="mb-3">
                      <label for="personaje" class="form-label text-white"
                         >Personaje</label
                      >
-                     <input type="text" name="personaje" class="form-control" id="personaje" required value="<%= edit ? edit.personaje : "" %>"/>
+                     <select name="personaje" id="personaje" class="form-select bg-info text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.personaje : "" %>" selected><%= edit ? edit.personaje : "Elige tu personaje" %></option>
+                      </select>
                   </div>
                   <div class="mb-3">
                      <label for="digimon1" class="form-label text-white"
                         >Digimon 1</label
                      >
-                     <input type="text" name="digimon1" class="form-control" id="digimon1" required value="<%= edit ? edit.digimon1 : "" %>"/>
+                     <select name="digimon1" id="selectDigimon1" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.digimon1 : "" %>" selected><%= edit ? edit.digimon1 : "Elige tu primer digimon" %></option>
+                      </select>
                   </div>
                   <div class="mb-3">
                      <label for="digimon2" class="form-label text-white"
                         >Digimon 2</label
                      >
-                     <input type="text" name="digimon2" class="form-control" id="digimon2" required value="<%= edit ? edit.digimon2 : "" %>"/>
+                     <select name="digimon2" id="selectDigimon2" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.digimon2 : "" %>" selected><%= edit ? edit.digimon2 : "Elige tu segundo digimon" %></option>
+                      </select>
                   </div>
                   <div class="mb-3">
                      <label for="digimon3" class="form-label text-white"
                         >Digimon 3</label
                      >
-                     <input type="text" name="digimon3" class="form-control" id="digimon3" required value="<%= edit ? edit.digimon3 : "" %>"/>
+                     <select name="digimon3" id="selectDigimon3" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.digimon3 : "" %>" selected><%= edit ? edit.digimon3 : "Elige tu tercer digimon" %></option>
+                      </select>
                   </div>
                   <div class="mb-3">
                      <label for="digimon4" class="form-label text-white"
                         >Digimon 4</label
                      >
-                     <input type="text" name="digimon4" class="form-control" id="digimon4" required value="<%= edit ? edit.digimon4 : "" %>"/>
+                     <select name="digimon4" id="selectDigimon4" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                        <option value="<%= edit ? edit.digimon4 : "" %>" selected><%= edit ? edit.digimon4 : "Elige tu cuarto digimon" %></option>
+                      </select>
                   </div>
                   <input type="hidden" name="_id" value="<%= edit ? edit._id : null %>"/>
-                  
-                  
-                  <!-- <select id= selectStates class="form-select bg-success text-white mb-3" aria-label="Default select example">
-                     <option value = "allStates" selected>Digivice</option>
-                     <option value = "allStates" selected>Digivice</option>
-                     <option value = "allStates" selected>Digivice</option>
-                   </select>
-                   <select id= selectStates class="form-select bg-warning text-white mb-3" aria-label="Default select example">
-                     <option value = "allStates" selected>Emblema</option>
-                   </select>
-                   <select id= selectStates class="form-select bg-danger text-white mb-3" aria-label="Default select example">
-                     <option value = "allStates" selected>Personaje</option>
-                   </select>
-                   <select id= selectStates class="form-select bg-info text-white mb-3" aria-label="Default select example">
-                     <option value = "allStates" selected>Digimon</option>
-                   </select> -->
-               <button type="submit" class="btn btn-success text-center mt-3">
+               <button type="submit" class="btn btn-success text-center mt-3 col-12">
                   ENVIAR
                </button>
             </form>
 </main>
 <%- include("partials/footer.ejs") %>
+<script src="/main.js"></script>
 </body>
 </html>
