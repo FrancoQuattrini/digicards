@@ -11,7 +11,7 @@
                p-5
             "
          >
-<h2 class="text-white pb-4">CREAR CARD</h2>
+<h2 class="text-white pb-4">Dale un vistazo a la <span class="text-warning">GALERIA</span> <span class="text-danger">➚</span> y crea tu card perfecta</h2>
             <form class="col-6 d-flex flex-column" method="POST" action="/card/<%= userId %> ">
                <div class="mb-3">
                   <div class="mb-3">
@@ -24,7 +24,7 @@
                      <label for="digivice" class="form-label text-white"
                         >Digivice</label
                      >
-                     <select name="digivice" id="digivice" class="form-select bg-primary text-white mb-3" aria-label="Default select example">
+                     <select name="digivice" id="digivice" class="form-select bg-secondary text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.digivice : "" %>" selected><%= edit ? edit.digivice : "Elige tu digivice" %></option>
                       </select>
                   </div>
@@ -34,7 +34,7 @@
                      <label for="emblema" class="form-label text-white"
                         >Emblema</label
                      >
-                     <select name="emblema" id="emblema" class="form-select bg-warning text-white mb-3" aria-label="Default select example">
+                     <select name="emblema" id="emblema" class="form-select bg-secondary text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.emblema : "" %>" selected><%= edit ? edit.emblema : "Elige tu emblema" %></option>
                       </select>
                   </div>
@@ -42,7 +42,7 @@
                      <label for="personaje" class="form-label text-white"
                         >Personaje</label
                      >
-                     <select name="personaje" id="personaje" class="form-select bg-info text-white mb-3" aria-label="Default select example">
+                     <select name="personaje" id="personaje" class="form-select bg-secondary text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.personaje : "" %>" selected><%= edit ? edit.personaje : "Elige tu personaje" %></option>
                       </select>
                   </div>
@@ -50,7 +50,7 @@
                      <label for="digimon1" class="form-label text-white"
                         >Digimon 1</label
                      >
-                     <select name="digimon1" id="selectDigimon1" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                     <select name="digimon1" id="selectDigimon1" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.digimon1 : "" %>" selected><%= edit ? edit.digimon1 : "Elige tu primer digimon" %></option>
                       </select>
                   </div>
@@ -58,7 +58,7 @@
                      <label for="digimon2" class="form-label text-white"
                         >Digimon 2</label
                      >
-                     <select name="digimon2" id="selectDigimon2" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                     <select name="digimon2" id="selectDigimon2" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.digimon2 : "" %>" selected><%= edit ? edit.digimon2 : "Elige tu segundo digimon" %></option>
                       </select>
                   </div>
@@ -66,7 +66,7 @@
                      <label for="digimon3" class="form-label text-white"
                         >Digimon 3</label
                      >
-                     <select name="digimon3" id="selectDigimon3" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                     <select name="digimon3" id="selectDigimon3" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.digimon3 : "" %>" selected><%= edit ? edit.digimon3 : "Elige tu tercer digimon" %></option>
                       </select>
                   </div>
@@ -74,7 +74,7 @@
                      <label for="digimon4" class="form-label text-white"
                         >Digimon 4</label
                      >
-                     <select name="digimon4" id="selectDigimon4" class="form-select bg-secondary text-white mb-3" aria-label="Default select example">
+                     <select name="digimon4" id="selectDigimon4" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
                         <option value="<%= edit ? edit.digimon4 : "" %>" selected><%= edit ? edit.digimon4 : "Elige tu cuarto digimon" %></option>
                       </select>
                   </div>

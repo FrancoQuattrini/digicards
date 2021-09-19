@@ -5,6 +5,9 @@ const userControllers = require("../controllers/userControllers")
 
 router.route("/").get(digiControllers.home)
 router.route("/digimons").get(digiControllers.digimons)
+router.route("/digivices").get(digiControllers.digivices)
+router.route("/emblemas").get(digiControllers.emblemas)
+router.route("/personajes").get(digiControllers.personajes)
 router
    .route("/signup")
    .get(userControllers.signUp)

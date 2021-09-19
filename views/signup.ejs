@@ -61,6 +61,7 @@
                      type="text"
                      class="form-control"
                      name="picture"
+                     placeholder="url"
                      id="picture"
                      required
                   />
@@ -69,7 +70,7 @@
                   ENVIAR
                </button>
                <% if (error) { %>
-                  <h2 class="text-white"><%= error %> </h2>
+                  <h2 class="textoError text-center mt-4"><%= error %> </h2>
                <% } %>  
             </form>
          </main>

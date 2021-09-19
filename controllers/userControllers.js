@@ -3,25 +3,33 @@ const bcryptjs = require("bcryptjs")
 
 const userControllers = {
    signUp: (req, res) => {
-      res.render("signup", {
-         title: "Crear cuenta",
-         logueado: req.session.logueado,
-         nombre: req.session.nombre || "",
-         picture: req.session.picture || "",
-         userId: req.session.userId,
-         error: null,
-      })
+      if (!req.session.logueado) {
+         res.render("signup", {
+            title: "Crear cuenta",
+            logueado: req.session.logueado,
+            nombre: req.session.nombre || "",
+            picture: req.session.picture || "",
+            userId: req.session.userId || "",
+            error: null,
+         })
+      } else {
+         res.redirect("/")
+      }
    },
 
    logIn: (req, res) => {
-      res.render("login", {
-         title: "Ingresar",
-         logueado: req.session.logueado,
-         nombre: req.session.nombre || "",
-         picture: req.session.picture || "",
-         userId: req.session.userId,
-         error: null,
-      })
+      if (!req.session.logueado) {
+         res.render("login", {
+            title: "Ingresar",
+            logueado: req.session.logueado,
+            nombre: req.session.nombre || "",
+            picture: req.session.picture || "",
+            userId: req.session.userId || "",
+            error: null,
+         })
+      } else {
+         res.redirect("/")
+      }
    },
 
    logOut: (req, res) => {
@@ -41,6 +49,9 @@ const userControllers = {
          picture,
       })
       try {
+         let usuario = await User.findOne({ email })
+         if (usuario)
+            throw new Error("Este email ya esta en uso padre, proba con otro")
          await nuevoUsuario.save()
          req.session.logueado = true
          req.session.nombre = nuevoUsuario.nombre
@@ -53,31 +64,35 @@ const userControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
-            userId: req.session.userId,
-            error: error,
+            userId: req.session.userId || "",
+            error: error.message,
          })
       }
    },
 
    ingresarCuenta: async (req, res) => {
       const { email, password } = req.body
-      let usuario = await User.findOne({ email })
-      let passwordCompare = bcryptjs.compareSync(password, usuario.password)
-      if (passwordCompare) {
+      try {
+         let usuario = await User.findOne({ email })
+         if (!usuario) throw new Error("Usuario y/o contraseña incorrecto/a")
+         let passwordCompare = bcryptjs.compareSync(password, usuario.password)
+         if (!passwordCompare)
+            throw new Error("Usuario y/o contraseña incorrecto/a")
          req.session.logueado = true
          req.session.nombre = usuario.nombre
          req.session.picture = usuario.picture
          req.session.userId = usuario._id
-         return res.redirect("/")
+         res.redirect("/")
+      } catch (error) {
+         res.render("login", {
+            title: "Ingresar",
+            logueado: req.session.logueado,
+            nombre: req.session.nombre || "",
+            picture: req.session.picture || "",
+            userId: req.session.userId || "",
+            error: error.message,
+         })
       }
-      res.render("login", {
-         title: "Ingresar",
-         logueado: req.session.logueado,
-         nombre: req.session.nombre || "",
-         picture: req.session.picture || "",
-         userId: req.session.userId,
-         error: "Usuario y/o contraseña incorrecto/a",
-      })
    },
 }
 

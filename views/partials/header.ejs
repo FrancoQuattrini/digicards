@@ -28,10 +28,44 @@
                <li class="nav-item">
                   <a class="nav-link <%= title.includes("Card") ? "active" : null %>" aria-current="page" href="/card/<%= userId %>">Crear cards</a>
                </li>
-               <% } %> 
-               <li class="nav-item">
-                  <a class="nav-link <%= title.includes("Digimons") ? "active" : null %>" aria-current="page" href="/digimons">Digimons</a>
-               </li>
+               <% } %>
+               <li class="nav-item dropdown">
+                  <a
+                     class="nav-link dropdown-toggle <%= title.includes("Digimons") || title.includes("Emblemas") || title.includes("Digivices") || title.includes("Personajes") ? "active" : null %>"
+                     href="#"
+                     id="dropdown07"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false"
+                     >Galeria</a
+                  >
+                  <ul
+                     class="dropdown-menu"
+                     aria-labelledby="dropdown07"
+                  >
+                     <li>
+                        <a class="dropdown-item" href="/digimons"
+                           >Digimons</a
+                        >
+                     </li>
+                     <li>
+                        <a class="dropdown-item" href="/emblemas">Emblemas</a>
+                     </li>
+                     <li>
+                        <a
+                           class="dropdown-item"
+                           href="/digivices"
+                           >Digivices</a
+                        >
+                     </li>
+                     <li>
+                        <a
+                           class="dropdown-item"
+                           href="/personajes"
+                           >Personajes</a
+                        >
+                     </li>
+                  </ul>
+               </li> 
                <% if (!logueado) { %>  
                <li class="nav-item">
                   <a class="nav-link <%= title.includes("Crear cuenta") ? "active" : null %>" aria-current="page" href="/signup">Crear cuenta</a>

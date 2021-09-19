@@ -27,8 +27,8 @@ const mostrarDigi = (digimons) => {
                            alt="..."
                         />
                         <div class="card-body">
-                           <h5 class="card-title fw-bold">${digimon.name}</h5>
-                           <p class="card-text">
+                           <h5 class="card-title fw-bold text-center">${digimon.name}</h5>
+                           <p class="card-text text-center">
                               <span class="fw-bold">LEVEL: </span>${digimon.level}
                            </p>
                         </div>
@@ -130,35 +130,35 @@ const emblemas = [
 const personajes = [
    {
       name: "Hikari",
-      src: "https://i.postimg.cc/V6TQpwLR/Hikari.png",
+      src: "https://i.postimg.cc/VkVq33b0/Hikari.png",
    },
    {
       name: "Joe",
-      src: "https://i.postimg.cc/7LHkTXWg/Joe.png",
+      src: "https://i.postimg.cc/XJMwvdLV/Joe.png",
    },
    {
-      name: "Koshiro",
-      src: "https://i.postimg.cc/j5CYM2K2/Koshiro.png",
+      name: "Izumi",
+      src: "https://i.postimg.cc/qq4ysrWS/Izumi.png",
    },
    {
       name: "Mimi",
-      src: "https://i.postimg.cc/7PGf6Y7q/Mimi.png",
+      src: "https://i.postimg.cc/PqvWh2m3/Mimi.png",
    },
    {
       name: "Sora",
-      src: "https://i.postimg.cc/WzkLPydP/Sora.png",
+      src: "https://i.postimg.cc/ZnH3jgSR/Sora.png",
    },
    {
       name: "Taichi",
-      src: "https://i.postimg.cc/G9n03jDT/Taichi.png",
+      src: "https://i.postimg.cc/c1BQsKnS/Taichi.png",
    },
    {
       name: "Takeru",
-      src: "https://i.postimg.cc/DwdhZRBv/Takeru.png",
+      src: "https://i.postimg.cc/pXVKy2fn/Takeru.png",
    },
    {
       name: "Yamato",
-      src: "https://i.postimg.cc/BvmG5DrR/Yamato.png",
+      src: "https://i.postimg.cc/Y91QL0DQ/Yamato.png",
    },
 ]
 
@@ -166,45 +166,47 @@ let selectDigivice = document.querySelector("#digivice")
 let selectEmblema = document.querySelector("#emblema")
 let selectPersonaje = document.querySelector("#personaje")
 
-// const fullSelects = (array, select) => {
-//    array.forEach((data) => {
-//       let option = document.createElement("option")
-//       select.appendChild(option)
-//       option.innerText = data.name
-//       option.value = data.src
-//    })
-// }
-// fullSelects(digivices, selectDigivice)
-
-const mostrarDigivices = () => {
-   digivices.forEach((digivice) => {
+const mostrarSelects = (contenido, select) => {
+   contenido.forEach((data) => {
       let option = document.createElement("option")
-      selectDigivice.appendChild(option)
-      option.innerText = digivice.name
-      option.value = digivice.src
-   })
-}
-
-const mostrarEmblemas = () => {
-   emblemas.forEach((emblema) => {
-      let option = document.createElement("option")
-      selectEmblema.appendChild(option)
-      option.innerText = emblema.name
-      option.value = emblema.src
-   })
-}
-
-const mostrarPersonajes = () => {
-   personajes.forEach((personaje) => {
-      let option = document.createElement("option")
-      selectPersonaje.appendChild(option)
-      option.innerText = personaje.name
-      option.value = personaje.src
+      select.appendChild(option)
+      option.innerText = data.name
+      option.value = data.src
    })
 }
 
 if (document.title.includes("Card")) {
-   mostrarDigivices()
-   mostrarEmblemas()
-   mostrarPersonajes()
+   mostrarSelects(digivices, selectDigivice)
+   mostrarSelects(emblemas, selectEmblema)
+   mostrarSelects(personajes, selectPersonaje)
 }
+
+let divDigivices = document.querySelector("#cardsDigivices")
+let divEmblemas = document.querySelector("#cardsEmblemas")
+let divPersonajes = document.querySelector("#cardsPersonajes")
+
+const galeria = (contenido, includ, divChoise) => {
+   contenido.forEach((data) => {
+      if (document.title.includes(includ)) {
+         let div = document.createElement("div")
+         divChoise.appendChild(div)
+         div.classList.add("col-3", "py-3", "d-flex", "justify-content-center")
+         div.innerHTML = `
+                     <div class="card" style="width: 18rem">
+                        <img
+                           src=${data.src}
+                         class="card-img-top"
+                           alt="..."
+                        />
+                        <div class="card-body">
+                           <h5 class="card-title fw-bold text-center">${data.name}</h5>
+                        </div>
+                     </div>
+                  `
+      }
+   })
+}
+
+galeria(digivices, "Digivices", divDigivices)
+galeria(emblemas, "Emblemas", divEmblemas)
+galeria(personajes, "Personajes", divPersonajes)

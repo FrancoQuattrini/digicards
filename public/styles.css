@@ -2,6 +2,7 @@ html * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: "Inconsolata", monospace;
 }
 
 main {
@@ -41,9 +42,25 @@ main {
    background: rgb(8, 5, 0);
    background: linear-gradient(
       166deg,
-      rgba(8, 5, 0, 1) 0%,
-      rgba(221, 162, 13, 1) 50%,
-      rgba(0, 0, 0, 1) 100%
+      rgb(0, 0, 0, 0.8) 0%,
+      rgba(24, 219, 203, 0.8) 25%,
+      rgba(221, 218, 13, 0.8) 50%,
+      rgba(207, 126, 19, 0.8) 75%,
+      rgb(0, 0, 0, 0.8) 100%
+   );
+}
+
+.myCard:hover {
+   box-shadow: rgb(255, 255, 255) 0px 2px 5px 0px;
+   width: 60%;
+   background: rgb(8, 5, 0);
+   background: linear-gradient(
+      166deg,
+      rgb(0, 0, 0, 1) 0%,
+      rgba(24, 219, 203, 1) 25%,
+      rgba(221, 218, 13, 1) 50%,
+      rgba(207, 126, 19, 1) 75%,
+      rgb(0, 0, 0, 1) 100%
    );
 }
 
@@ -70,4 +87,41 @@ main {
    margin: 0px 10px;
    background-position: center;
    background-size: cover;
+}
+
+.cartelIndex {
+   position: absolute;
+   top: 32%;
+   left: 25%;
+   background-color: rgba(0, 0, 0, 0.719);
+   border-radius: 10px;
+}
+
+.botonStart {
+   font-size: 20px;
+}
+
+.tituloIndex {
+   font-weight: 700;
+   font-size: 5rem;
+   border-radius: 10px;
+   background: rgba(8, 5, 0, 0.534);
+   background: linear-gradient(
+      166deg,
+      rgb(0, 0, 0, 0.6) 0%,
+      rgba(24, 219, 203, 0.6) 25%,
+      rgba(221, 218, 13, 0.6) 50%,
+      rgba(207, 126, 19, 0.6) 75%,
+      rgb(0, 0, 0, 0.6) 100%
+   );
+}
+
+.hovee:hover {
+   color: coral;
+}
+
+.textoError {
+   background-color: rgba(252, 172, 1, 0.473);
+   border-radius: 10px;
+   color: chartreuse;
 }

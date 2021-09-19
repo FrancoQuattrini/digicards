@@ -2,12 +2,13 @@ const Card = require("../models/Card")
 
 const digiControllers = {
    home: (req, res) => {
+      console.log(req.session)
       res.render("index", {
          title: "Home",
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
-         userId: req.session.userId,
+         userId: req.session.userId || "",
       })
    },
 
@@ -17,7 +18,7 @@ const digiControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
-         userId: req.session.userId,
+         userId: req.session.userId || "",
       })
    },
 
@@ -27,7 +28,37 @@ const digiControllers = {
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
-         userId: req.session.userId,
+         userId: req.session.userId || "",
+      })
+   },
+
+   digivices: (req, res) => {
+      res.render("digivices", {
+         title: "Digivices",
+         logueado: req.session.logueado,
+         nombre: req.session.nombre || "",
+         picture: req.session.picture || "",
+         userId: req.session.userId || "",
+      })
+   },
+
+   emblemas: (req, res) => {
+      res.render("emblemas", {
+         title: "Emblemas",
+         logueado: req.session.logueado,
+         nombre: req.session.nombre || "",
+         picture: req.session.picture || "",
+         userId: req.session.userId || "",
+      })
+   },
+
+   personajes: (req, res) => {
+      res.render("personajes", {
+         title: "Personajes",
+         logueado: req.session.logueado,
+         nombre: req.session.nombre || "",
+         picture: req.session.picture || "",
+         userId: req.session.userId || "",
       })
    },
 
@@ -38,12 +69,11 @@ const digiControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
-            userId: req.session.userId,
+            userId: req.session.userId || "",
             error: null,
             edit: false,
          })
       }
-      res.redirect("/unauthorized")
    },
 
    mycards: async (req, res) => {
@@ -54,7 +84,7 @@ const digiControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
-            userId: req.session.userId,
+            userId: req.session.userId || "",
             cards,
          })
       }
@@ -89,7 +119,7 @@ const digiControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
-            userId: req.params._id,
+            userId: req.params._id || "",
          })
       } else {
          nuevaCard = await Card.findOne({ _id })
@@ -103,7 +133,6 @@ const digiControllers = {
          nuevaCard.digimon4 = digimon4
          nuevaCard.userId = req.params._id
       }
-
       try {
          await nuevaCard.save()
          res.redirect("/mycards")
@@ -113,7 +142,7 @@ const digiControllers = {
             logueado: req.session.logueado,
             nombre: req.session.nombre || "",
             picture: req.session.picture || "",
-            userId: req.session.userId,
+            userId: req.session.userId || "",
             error,
          })
       }
@@ -121,13 +150,12 @@ const digiControllers = {
 
    editarCard: async (req, res) => {
       let editedCard = await Card.findOne({ _id: req.params._id })
-      console.log(editedCard)
       res.render("card", {
          title: "Editar Card",
          logueado: req.session.logueado,
          nombre: req.session.nombre || "",
          picture: req.session.picture || "",
-         userId: req.session.userId,
+         userId: req.session.userId || "",
          error: null,
          edit: editedCard,
       })

@@ -11,21 +11,28 @@
                p-5
             "
          >
-<h2 class="text-white pb-4">MIS CARDS</h2>
-   <% if (cards.length === 0) { %>  
-      <h1 class="text-white">No tenes cards creadas por el momento</h1>
+<h1 class="text-white pb-4">MIS CARDS</h1>
+   <% if (cards.length === 0) { %>
+    <div>
+        <h2 class="text-white text-center">No tenes cards creadas por el momento</h2>
+        <h2 class="text-white text-center">Puedes crear una aquí</h2>
+        <a href="/card/:_id"><button class="btn btn-light hovee text-center col-12 py-2 mt-5">
+            Crear Card
+            </button></a>
+    </div>  
+
    <% } else { %>  
         <% cards.forEach(card => { %> 
           <div class="card text-white mb-5 myCard">
-            <h2 class="pt-2 text-center"><%= card.nickname %></h2>
+            <h2 class="pt-2 text-center fw-bold"><%= card.nickname %></h2>
             <div class="d-flex justify-content-between py-1 ps-4 pe-4">
                 <div class="col-8 d-flex justify-content-around align-items-center">
-                    <div>
-                        <h4>DIGIVICE</h4>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h4>Mi Digivice</h4>
                         <img class="imgTarjeta pt-4" src=<%= card.digivice %> alt="">
                     </div>
-                    <div>
-                        <h4>EMBLEMA</h4>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h4>Mi emblema</h4>
                         <img class="imgTarjeta pt-2" src=<%= card.emblema %> alt="">
                     </div>
                 </div>
@@ -53,7 +60,7 @@
                     <h4><span class="text-success fw-bold">Agilidad: </span><%= (Math.random() * 50000).toFixed(0) %> PX</h4>
                 </div>
                 <div class="text-center">
-                  <a href="/editar-card/<%= card._id %> "><button type="submit" class="btn btn-warning text-white m-2 mb-4 col-3">
+                  <a href="/editar-card/<%= card._id %> "><button type="submit" class="btn btn-primary text-white m-2 mb-4 col-3">
                       EDITAR
                     </button></a>
                     <a href="/borrar-card/<%= card._id %> "><button type="submit" class="btn btn-danger text-white m-2 mb-4 col-3">
