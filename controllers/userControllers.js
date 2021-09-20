@@ -57,7 +57,13 @@ const userControllers = {
          req.session.nombre = nuevoUsuario.nombre
          req.session.picture = nuevoUsuario.picture
          req.session.userId = nuevoUsuario._id
-         res.redirect("/")
+         res.render("index", {
+            title: "Home",
+            logueado: req.session.logueado,
+            nombre: req.session.nombre || "",
+            picture: req.session.picture || "",
+            userId: req.session.userId || "",
+         })
       } catch (error) {
          res.render("signup", {
             title: "Crear cuenta",
@@ -82,7 +88,13 @@ const userControllers = {
          req.session.nombre = usuario.nombre
          req.session.picture = usuario.picture
          req.session.userId = usuario._id
-         res.redirect("/")
+         res.render("index", {
+            title: "Home",
+            logueado: req.session.logueado,
+            nombre: req.session.nombre || "",
+            picture: req.session.picture || "",
+            userId: req.session.userId || "",
+         })
       } catch (error) {
          res.render("login", {
             title: "Ingresar",

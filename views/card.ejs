@@ -25,7 +25,7 @@
                         >Digivice</label
                      >
                      <select name="digivice" id="digivice" class="form-select bg-secondary text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.digivice : "" %>" selected><%= edit ? edit.digivice : "Elige tu digivice" %></option>
+                        <option value="<%= edit ? edit.digivice : "" %>" selected><%= edit ? edit.digivice.split('/').reverse()[0].replace(/.png/,'') : "Elige tu digivice" %></option>
                       </select>
                   </div>
 
@@ -35,7 +35,7 @@
                         >Emblema</label
                      >
                      <select name="emblema" id="emblema" class="form-select bg-secondary text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.emblema : "" %>" selected><%= edit ? edit.emblema : "Elige tu emblema" %></option>
+                        <option value="<%= edit ? edit.emblema : "" %>" selected><%= edit ? edit.emblema.split('/').reverse()[0].replace(/.png/,'') : "Elige tu emblema" %></option>
                       </select>
                   </div>
                   <div class="mb-3">
@@ -43,7 +43,7 @@
                         >Personaje</label
                      >
                      <select name="personaje" id="personaje" class="form-select bg-secondary text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.personaje : "" %>" selected><%= edit ? edit.personaje : "Elige tu personaje" %></option>
+                        <option value="<%= edit ? edit.personaje : "" %>" selected><%= edit ? edit.personaje.split('/').reverse()[0].replace(/.png/,'') : "Elige tu personaje" %></option>
                       </select>
                   </div>
                   <div class="mb-3">
@@ -51,7 +51,7 @@
                         >Digimon 1</label
                      >
                      <select name="digimon1" id="selectDigimon1" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.digimon1 : "" %>" selected><%= edit ? edit.digimon1 : "Elige tu primer digimon" %></option>
+                        <option value="<%= edit ? edit.digimon1 : "" %>" selected><%= edit ? edit.digimon1.split('/').reverse()[0].replace(/.jpg/,'') : "Elige tu primer digimon" %></option>
                       </select>
                   </div>
                   <div class="mb-3">
@@ -59,7 +59,7 @@
                         >Digimon 2</label
                      >
                      <select name="digimon2" id="selectDigimon2" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.digimon2 : "" %>" selected><%= edit ? edit.digimon2 : "Elige tu segundo digimon" %></option>
+                        <option value="<%= edit ? edit.digimon2 : "" %>" selected><%= edit ? edit.digimon2.split('/').reverse()[0].replace(/.jpg/,'') : "Elige tu segundo digimon" %></option>
                       </select>
                   </div>
                   <div class="mb-3">
@@ -67,7 +67,7 @@
                         >Digimon 3</label
                      >
                      <select name="digimon3" id="selectDigimon3" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.digimon3 : "" %>" selected><%= edit ? edit.digimon3 : "Elige tu tercer digimon" %></option>
+                        <option value="<%= edit ? edit.digimon3 : "" %>" selected><%= edit ? edit.digimon3.split('/').reverse()[0].replace(/.jpg/,'') : "Elige tu tercer digimon" %></option>
                       </select>
                   </div>
                   <div class="mb-3">
@@ -75,7 +75,7 @@
                         >Digimon 4</label
                      >
                      <select name="digimon4" id="selectDigimon4" class="form-select bg-info text-white mb-3" aria-label="Default select example" required>
-                        <option value="<%= edit ? edit.digimon4 : "" %>" selected><%= edit ? edit.digimon4 : "Elige tu cuarto digimon" %></option>
+                        <option value="<%= edit ? edit.digimon4 : "" %>" selected><%= edit ? edit.digimon4.split('/').reverse()[0].replace(/.jpg/,'') : "Elige tu cuarto digimon" %></option>
                       </select>
                   </div>
                   <input type="hidden" name="_id" value="<%= edit ? edit._id : null %>"/>

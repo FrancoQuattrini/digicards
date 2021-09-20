@@ -2,7 +2,6 @@ const Card = require("../models/Card")
 
 const digiControllers = {
    home: (req, res) => {
-      console.log(req.session)
       res.render("index", {
          title: "Home",
          logueado: req.session.logueado,

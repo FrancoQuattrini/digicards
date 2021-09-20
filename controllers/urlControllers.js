@@ -1,6 +1,10 @@
 const urlControllers = {
    checkUrl: (req, res, next) => {
-      if (req.url.startsWith("/card/", "/borrar-card/", "/editar-card/")) {
+      if (
+         req.url.startsWith("/card/") ||
+         req.url.startsWith("/borrar-card/") ||
+         req.url.startsWith("/editar-card/")
+      ) {
          next()
       } else {
          let validURL = [
@@ -21,15 +25,3 @@ const urlControllers = {
 }
 
 module.exports = urlControllers
-
-// const urlControllers = {
-//     checkURL: (req, res, next) => {
-//         if(req.url.startsWith('/user/remove/')){
-//             next()
-//         }else{
-//             let validURL = ["/", "/register", "/login", "/options", "/roll", "/logout", "/highscores"]
-//             validURL.includes(req.url) ? next() : res.redirect('/')
-
-//     }
-// }
-// module.exports = urlControllers

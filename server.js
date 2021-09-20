@@ -23,8 +23,7 @@ app.use(
       store: myStore,
    })
 )
-// const urlControllers = require("./controllers/urlControllers")
-// app.use("/", urlControllers.checkUrl, router)
-app.use("/", router)
+const urlControllers = require("./controllers/urlControllers")
+app.use("/", urlControllers.checkUrl, router)
 
 app.listen(4000, () => console.log("Server listening"))
