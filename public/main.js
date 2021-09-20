@@ -91,39 +91,39 @@ const digivices = [
 const emblemas = [
    {
       name: "Emblema Amistad",
-      src: "https://i.postimg.cc/vTgzH5sk/emblema-Amistad.png",
+      src: "https://i.postimg.cc/q7z2mQYN/Emblema-Amistad.png",
    },
    {
       name: "Emblema Amor",
-      src: "https://i.postimg.cc/26XGD2Pn/emblema-Amor.png",
+      src: "https://i.postimg.cc/hjmTnvKg/Emblema-Amor.png",
    },
    {
       name: "Emblema Bondad",
-      src: "https://i.postimg.cc/L6gCHF45/emblema-Bondad.png",
+      src: "https://i.postimg.cc/d3mC7f7x/Emblema-Bondad.png",
    },
    {
       name: "Emblema Conocimiento",
-      src: "https://i.postimg.cc/pLN0rcyZ/emblema-Conocimiento.png",
+      src: "https://i.postimg.cc/brjbwPvn/Emblema-Conocimiento.png",
    },
    {
       name: "Emblema Esperanza",
-      src: "https://i.postimg.cc/MG5tsW5P/emblema-Esperanza.png",
+      src: "https://i.postimg.cc/CKXk9kTm/Emblema-Esperanza.png",
    },
    {
       name: "Emblema Inocencia",
-      src: "https://i.postimg.cc/nzL2g6wH/emblema-Inocencia.png",
+      src: "https://i.postimg.cc/bYQkFZ69/Emblema-Inocencia.png",
    },
    {
       name: "Emblema Luz",
-      src: "https://i.postimg.cc/GpdqJBFT/emblema-Luz.png",
+      src: "https://i.postimg.cc/PryZTBnL/Emblema-Luz.png",
    },
    {
       name: "Emblema Sinceridad",
-      src: "https://i.postimg.cc/T3rtDjDX/emblema-Sinceridad.png",
+      src: "https://i.postimg.cc/VLmnyzpQ/Emblema-Sinceridad.png",
    },
    {
       name: "Emblema Valor",
-      src: "https://i.postimg.cc/WzB7Dtp3/emblema-Valor.png",
+      src: "https://i.postimg.cc/P5Fw8YxT/Emblema-Valor.png",
    },
 ]
 
