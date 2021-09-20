@@ -26,4 +26,7 @@ app.use(
 const urlControllers = require("./controllers/urlControllers")
 app.use("/", urlControllers.checkUrl, router)
 
-app.listen(4000, () => console.log("Server listening"))
+const PORT = process.env.PORT || 4000
+const HOST = process.env.MYHOST || "0.0.0.0"
+
+app.listen(PORT, HOST, () => console.log("Server listening"))
