@@ -1,17 +1,45 @@
-const mongoose = require("mongoose")
+const Sequelize = require("sequelize")
+const db = require("../config/database")
 
-const cardSchema = new mongoose.Schema({
-   nickname: String,
-   digivice: String,
-   emblema: String,
-   personaje: String,
-   digimon1: String,
-   digimon2: String,
-   digimon3: String,
-   digimon4: String,
-   userId: { type: mongoose.Types.ObjectId, ref: "user" },
+const Card = db.define("card", {
+   id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+   },
+   nickname: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   digivice: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   emblema: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   personaje: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   digimon1: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   digimon2: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   digimon3: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
+   digimon4: {
+      type: Sequelize.STRING,
+      allowNull: false,
+   },
 })
-
-const Card = mongoose.model("card", cardSchema)
 
 module.exports = Card

@@ -41,22 +41,25 @@ const userControllers = {
    crearCuenta: async (req, res) => {
       const { nombre, apellido, email, password, picture } = req.body
       const hashedPassword = bcryptjs.hashSync(password, 10)
-      let nuevoUsuario = new User({
-         nombre,
-         apellido,
-         email,
-         password: hashedPassword,
-         picture,
-      })
       try {
-         let usuario = await User.findOne({ email })
+         let usuario = await User.findOne({
+            where: {
+               email,
+            },
+         })
          if (usuario)
             throw new Error("Este email ya esta en uso padre, proba con otro")
-         await nuevoUsuario.save()
+         let nuevoUsuario = await User.create({
+            nombre,
+            apellido,
+            email,
+            password: hashedPassword,
+            picture,
+         })
          req.session.logueado = true
          req.session.nombre = nuevoUsuario.nombre
          req.session.picture = nuevoUsuario.picture
-         req.session.userId = nuevoUsuario._id
+         req.session.userId = nuevoUsuario.id
          res.render("index", {
             title: "Home",
             logueado: req.session.logueado,
@@ -79,7 +82,12 @@ const userControllers = {
    ingresarCuenta: async (req, res) => {
       const { email, password } = req.body
       try {
-         let usuario = await User.findOne({ email })
+         let usuario = await User.findOne({
+            raw: true,
+            where: {
+               email,
+            },
+         })
          if (!usuario) throw new Error("Usuario y/o contraseña incorrecto/a")
          let passwordCompare = bcryptjs.compareSync(password, usuario.password)
          if (!passwordCompare)
@@ -87,7 +95,7 @@ const userControllers = {
          req.session.logueado = true
          req.session.nombre = usuario.nombre
          req.session.picture = usuario.picture
-         req.session.userId = usuario._id
+         req.session.userId = usuario.id
          res.render("index", {
             title: "Home",
             logueado: req.session.logueado,

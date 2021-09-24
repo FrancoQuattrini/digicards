@@ -22,8 +22,8 @@ router
    .get(digiControllers.card)
    .post(digiControllers.crearCard)
 router.route("/mycards").get(digiControllers.mycards)
-router.route("/borrar-card/:_id").get(digiControllers.borrarCard)
-router.route("/editar-card/:_id").get(digiControllers.editarCard)
+router.route("/borrar-card/:id").get(digiControllers.borrarCard)
+router.route("/editar-card/:id").get(digiControllers.editarCard)
 router.route("/unauthorized").get(digiControllers.unauthorized)
 
 module.exports = router

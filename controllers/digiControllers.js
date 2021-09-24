@@ -77,7 +77,7 @@ const digiControllers = {
 
    mycards: async (req, res) => {
       if (req.session.logueado) {
-         const cards = await Card.find({ userId: req.session.userId })
+         const cards = await Card.findAll({ userId: req.session.userId })
          return res.render("mycards", {
             title: "MC",
             logueado: req.session.logueado,
@@ -100,13 +100,13 @@ const digiControllers = {
          digimon2,
          digimon3,
          digimon4,
-         _id,
+         id,
       } = req.body
 
       let nuevaCard
 
-      if (!_id) {
-         nuevaCard = new Card({
+      if (!id) {
+         nuevaCard = await Card.create({
             nickname,
             digivice,
             emblema,
@@ -121,7 +121,7 @@ const digiControllers = {
             userId: req.params._id || "",
          })
       } else {
-         nuevaCard = await Card.findOne({ _id })
+         nuevaCard = await Card.findByPk(id)
          nuevaCard.nickname = nickname
          nuevaCard.digivice = digivice
          nuevaCard.emblema = emblema
@@ -130,7 +130,7 @@ const digiControllers = {
          nuevaCard.digimon2 = digimon2
          nuevaCard.digimon3 = digimon3
          nuevaCard.digimon4 = digimon4
-         nuevaCard.userId = req.params._id
+         nuevaCard.userId = req.params.id
       }
       try {
          await nuevaCard.save()
@@ -148,7 +148,7 @@ const digiControllers = {
    },
 
    editarCard: async (req, res) => {
-      let editedCard = await Card.findOne({ _id: req.params._id })
+      let editedCard = await Card.findByPk(req.params.id)
       res.render("card", {
          title: "Editar Card",
          logueado: req.session.logueado,
@@ -161,7 +161,11 @@ const digiControllers = {
    },
 
    borrarCard: async (req, res) => {
-      await Card.findOneAndDelete({ _id: req.params._id })
+      await Card.destroy({
+         where: {
+            id: req.params.id,
+         },
+      })
       res.redirect("/mycards")
    },
 }
