@@ -78,7 +78,7 @@
                         <option value="<%= edit ? edit.digimon4 : "" %>" selected><%= edit ? edit.digimon4.split('/').reverse()[0].replace(/.jpg/,'') : "Elige tu cuarto digimon" %></option>
                       </select>
                   </div>
-                  <input type="hidden" name="_id" value="<%= edit ? edit._id : null %>"/>
+                  <input type="hidden" name="id" value="<%= edit ? edit.id : null %>"/>
                <button type="submit" class="btn btn-success text-center mt-3 col-12">
                   ENVIAR
                </button>
