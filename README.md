@@ -35,6 +35,7 @@ npm start
 * [Sequelize](https://sequelize.org/) - ORM based on promises for Node
 * [Mongoose](https://mongoosejs.com/) - Object modeling (Object Document Mapper (ODM))
 * [Bcrypt](https://www.npmjs.com/package/bcryptjs) - Password protection
+* [Bootstrap](https://getbootstrap.com/) - CSS library
 
 
 ## Expressions of Gratitude 💗
